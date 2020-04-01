@@ -1,4 +1,4 @@
-package id.ac.unhas.infocovid19.ui.provinsi
+package id.ac.unhas.infocovid19.ui.harian
 
 import android.os.Bundle
 import android.util.Log
@@ -10,52 +10,52 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.unhas.infocovid19.R
 import id.ac.unhas.infocovid19.model.DataSource
-import kotlinx.android.synthetic.main.provinsilist_fragment.*
+import kotlinx.android.synthetic.main.perkasuslist_fragment.*
 
-class ProvinsiListFragment : Fragment() {
+
+class HarianListFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ProvinsiListFragment()
+        fun newInstance() = HarianListFragment()
     }
 
-    private lateinit var viewModel: ProvinsiViewModel
-    private lateinit var viewModelFactory: ProvinsiViewModelFactory
+    private lateinit var viewModel: HarianViewModel
+    private lateinit var viewModelFactory: HarianViewModelFactory
 
     private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.provinsilist_fragment, container, false)
+    ): View? {
+        return inflater.inflate(R.layout.harianlist_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val jsonList: String =
             activity?.applicationContext?.let {
-                DataSource.getJsonDataFromAsset(it, "provinsi.json")
+                DataSource.getJsonDataFromAsset(it, "harian.json")
             }.toString()
 
-        val provinsiRepository = ProvinsiRepository(jsonList)
+        val harianRepository = HarianRepository(jsonList)
 
-        viewModelFactory = ProvinsiViewModelFactory(provinsiRepository)
+        viewModelFactory = HarianViewModelFactory(harianRepository)
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ProvinsiViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(HarianViewModel::class.java)
 
-        viewModel.getMoviesFromRepo()
+        viewModel.getDataFromRepo()
 
         Log.d("MainFragment", "createView")
 
         linearLayoutManager = LinearLayoutManager(context)
         recyclerview.layoutManager = linearLayoutManager
 
-        val adapter = ProvinsiAdapter(viewModel.movies)
+        val adapter = HarianAdapter(viewModel.dataharian)
 
         recyclerview.adapter = adapter
 

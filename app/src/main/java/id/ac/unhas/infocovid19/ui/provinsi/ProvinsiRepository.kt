@@ -7,9 +7,9 @@ import id.ac.unhas.infocovid19.model.Provinsi
 class ProvinsiRepository(
     private val jsonString: String
 ) {
-    fun getMoviesFromJsonString() : ArrayList<Provinsi>{
+    fun getMoviesFromJsonString(): ArrayList<Provinsi> {
         val listProvinsi = ArrayList<Provinsi>()
-        val dataProvinsi: DataProvinsi = DataSource.createDataSet(jsonString)
+        val dataProvinsi: DataProvinsi = DataSource.createDataSetProvinsi(jsonString)
         dataProvinsi.data?.forEach {
             if (it != null) {
                 listProvinsi.add(it)

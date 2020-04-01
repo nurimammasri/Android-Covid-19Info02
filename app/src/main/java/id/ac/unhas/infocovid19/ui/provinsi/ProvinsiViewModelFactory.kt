@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
 
-class ProvinsiViewModelFactory (
+class ProvinsiViewModelFactory(
     private val repository: ProvinsiRepository
-):ViewModelProvider.NewInstanceFactory(){
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return modelClass.getConstructor(ProvinsiRepository::class.java).newInstance(repository)
     }

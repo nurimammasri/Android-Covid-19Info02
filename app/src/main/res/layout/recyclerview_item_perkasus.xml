@@ -7,17 +7,18 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/nama_provinsi"
+        android:id="@+id/pasienke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="@string/nama_provinsi" />
+        tools:text="@string/pasien_ke" />
 
     <TextView
-        android:id="@+id/data_provinsi"
+        android:id="@+id/data_pasien"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="@string/data_provinsi" />
+        android:justificationMode="inter_word"
+        tools:text="@string/data_pasien" />
 
 </LinearLayout>

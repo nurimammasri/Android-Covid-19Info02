@@ -7,13 +7,13 @@ class ProvinsiViewModel(
     private val repository: ProvinsiRepository
 ) : ViewModel() {
     private var _movies = ArrayList<Provinsi>()
-    val movies:ArrayList<Provinsi>
+    val movies: ArrayList<Provinsi>
         get() = _movies
 
-    fun getMoviesFromRepo(){
+    fun getMoviesFromRepo() {
         //_movies.clear()
         _movies.apply {
-            if(isEmpty()){
+            if (isEmpty()) {
                 addAll(repository.getMoviesFromJsonString())
             }
         }

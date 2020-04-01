@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/provinsi"
+        android:icon="@drawable/icon_province_white"
+        android:title="@string/data_provinsi" />
+    <item
+        android:id="@+id/perkasus"
+        android:icon="@drawable/icon_pacient_white"
+        android:title="@string/data_pasien"/>
+    <item
+        android:id="@+id/harian"
+        android:icon="@drawable/icon_day_white"
+        android:title="@string/data_harian" />
+</menu>
