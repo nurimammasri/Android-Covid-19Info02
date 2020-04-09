@@ -13,14 +13,26 @@ class PerkasusAdapter(private val daftarPerkasus: ArrayList<PerKasus>) :
     class PerkasusHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(itemPerkasus: PerKasus) {
             with(itemView) {
-                val desc =
-                    " Kode Pasien : ${(itemPerkasus.kode_pasien) ?: "-"}\n Jenis Kelamin : ${when ((itemPerkasus.jenis_kelamin)) {
-                        "P" -> "Perempuan"
-                        "L" -> "Laki - Laki"
-                        else -> "-"
-                    }}\n " +
-                            "Umur : ${(itemPerkasus.umur) ?: "-"}\n Keterangan : ${(itemPerkasus.keterangan) ?: "-"}\n Keterangan Status : ${(itemPerkasus.keterangan_status) ?: "-"}\n " +
-                            "Warga Negara : ${(itemPerkasus.detail_wn) ?: "-"}\n Hasil Lab : ${(itemPerkasus.hasil_lab) ?: "-"}"
+                val desc = " Kode Pasien : ${(itemPerkasus.kode_pasien) ?: "-"}\n " +
+                        "Jenis Kelamin : ${when ((itemPerkasus.jenis_kelamin)) {
+                            0 -> "Perempuan"
+                            1 -> "Laki - Laki"
+                            else -> "-"
+                        }}\n " +
+                        "Umur : ${(itemPerkasus.umur) ?: "-"}\n " +
+                        "Keterangan : ${(itemPerkasus.keterangan) ?: "-"}\n " +
+                        "Keterangan Status : ${(itemPerkasus.keterangan_status) ?: "-"}\n " +
+                        "Warga Negara : ${(itemPerkasus.detail_wn) ?: "-"}\n " +
+                        "Hasil Lab : ${when (itemPerkasus.id_lab) {
+                            1 -> "positif"
+                            else -> "-"
+                        }},\n " +
+                        "Status Pasien : ${when (itemPerkasus.id_status) {
+                            0 -> "meninggal"
+                            1 -> "sembuh"
+                            2 -> "masih dirawat"
+                            else -> "-"
+                        }}"
                 val pasien = "Pasien ke - ${(itemPerkasus.id_pasien) ?: "-"}"
                 pasienke.text = pasien
                 data_pasien.text = desc

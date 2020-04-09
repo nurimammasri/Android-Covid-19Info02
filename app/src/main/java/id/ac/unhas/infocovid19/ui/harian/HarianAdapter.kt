@@ -14,11 +14,19 @@ class HarianAdapter(private val daftarHarian: ArrayList<Harian>) :
         fun bind(itemHarian: Harian) {
             with(itemView) {
                 val desc =
-                    "   -  tanggal : ${itemHarian.tanggal}\n   -  Jumlah Kasus Baru Per Hari : ${itemHarian.jumlahKasusBaruperHari}\n   -  Jumlah Kasus Kumulatif : ${itemHarian.jumlahKasusKumulatif}\n   -  " +
-                            "Jumlah Pasien Dalam Perawatan : ${itemHarian.jumlahpasiendalamperawatan}\n   -  Persentase Pasien Dalam Perawatan : ${itemHarian.persentasePasiendalamPerawatan}\n   -  Jumlah Pasien Sembuh : ${itemHarian.jumlahPasienSembuh}\n   -  " +
-                            "Persentase Pasien Sembuh : ${itemHarian.persentasePasienSembuh}\n   -  Jumlah Pasien Meninggal : ${itemHarian.jumlahPasienMeninggal}\n   -  Persentase Pasien Meninggal : ${itemHarian.persentasePasienMeninggal}\n   -  " +
-                            "Jumlah Kasus Sembuh Per hari : ${itemHarian.jumlahKasusSembuhperHari}\n   -  Jumlah Kasus Meninggal Perhari : ${itemHarian.jumlahKasusMeninggalperHari}\n   -  Jumlah KasusDirawat Per Hari : ${itemHarian.jumlahKasusDirawatperHari}\n"
-                val hari = "Hari ke -  ${itemHarian.harike}"
+                    "\t\t-\ttanggal : ${itemHarian.tanggal}\n" +
+                            "\t\t-\tJumlah Kasus Baru Per Hari : ${itemHarian.jumlahKasusBaruperHari}\n" +
+                            "\t\t-\tJumlah Kasus Kumulatif : ${itemHarian.jumlahKasusKumulatif}\n" +
+                            "\t\t-\tJumlah Pasien Dalam Perawatan : ${itemHarian.jumlahpasiendalamperawatan}\n" +
+                            "\t\t-\tPersentase Pasien Dalam Perawatan : ${itemHarian.persentasePasiendalamPerawatan}\n" +
+                            "\t\t-\tJumlah Pasien Sembuh : ${itemHarian.jumlahPasienSembuh}\n" +
+                            "\t\t-\tPersentase Pasien Sembuh : ${itemHarian.persentasePasienSembuh}\n" +
+                            "\t\t-\tJumlah Pasien Meninggal : ${itemHarian.jumlahPasienMeninggal}\n" +
+                            "\t\t-\tPersentase Pasien Meninggal : ${itemHarian.persentasePasienMeninggal}\n" +
+                            "\t\t-\tJumlah Kasus Sembuh Per hari : ${itemHarian.jumlahKasusSembuhperHari}\n" +
+                            "\t\t-\tJumlah Kasus Meninggal Perhari : ${itemHarian.jumlahKasusMeninggalperHari}\n" +
+                            "\t\t-\tJumlah KasusDirawat Per Hari : ${itemHarian.jumlahKasusDirawatperHari}\n"
+                val hari = "Hari ke - ${itemHarian.harike}"
                 harike.text = hari
                 data_harian.text = desc
             }

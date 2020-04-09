@@ -1,6 +1,9 @@
 package id.ac.unhas.infocovid19.model
 
+import com.google.gson.annotations.SerializedName
+
 data class DataProvinsi(
+    @SerializedName("data")
     val data: List<Provinsi?>?
 ) {
     override fun toString(): String {
@@ -13,11 +16,21 @@ data class DataProvinsi(
 }
 
 data class Provinsi(
+    @SerializedName("fid")
     val fid: Int?,
+
     val kasusMeni: Int?,
+
+    @SerializedName("kasusPosi")
     val kasusPosi: Int?,
+
+    @SerializedName("kasusSemb")
     val kasusSemb: Int?,
+
+    @SerializedName("kodeProvi")
     val kodeProvi: Int?,
+
+    @SerializedName("provinsi")
     val provinsi: String?
 ) {
     override fun toString(): String {

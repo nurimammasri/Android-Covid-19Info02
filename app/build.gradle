@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -14,6 +18,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        //Base Url dari API yang digunakan
+        buildConfigField 'String', 'BASE_URL', '"https://indonesia-covid-19.mathdro.id/api/"'
+
     }
 
     buildTypes {
@@ -39,11 +48,19 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //gson json converter
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     //RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     //material
     implementation 'com.google.android.material:material:1.2.0-alpha05'
+
+    //networking retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+
+    //okhtpp -> logging needs
+    implementation 'com.squareup.okhttp3:okhttp:4.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
 }

@@ -1,6 +1,9 @@
 package id.ac.unhas.infocovid19.model
 
+import com.google.gson.annotations.SerializedName
+
 data class DataPerkasus(
+    @SerializedName("data")
     val data: List<PerKasus?>?
 ) {
     override fun toString(): String {
@@ -14,30 +17,87 @@ data class DataPerkasus(
 
 data class PerKasus(
 
+    @SerializedName("id_pasien")
     val id_pasien: Int?,
-    val hasil_lab: String?,
+
+    @SerializedName("id_lab")
+    val id_lab: Int?,
+
+    @SerializedName("kode_pasien")
     val kode_pasien: Int?,
-    val provinsi: Int?,
-    val long: Double?,
-    val lat: Double?,
-    val jenis_kelamin: String?,
+
+    @SerializedName("long")
+    val long: Any?,
+
+    @SerializedName("lat")
+    val lat: Any?,
+
+    @SerializedName("jenis_kelamin")
+    val jenis_kelamin: Int?,
+
+    @SerializedName("umur")
     val umur: Int?,
-    val cluster: Int?,
+
+    @SerializedName("id_cluster")
+    val id_cluster: Any?,
+
+    @SerializedName("keterangan")
     val keterangan: String?,
-    val status_pasien: Int?,
+
+    @SerializedName("id_status")
+    val id_status: Int?,
+
+    @SerializedName("keterangan_status")
     val keterangan_status: String?,
+
+    @SerializedName("wn")
     val wn: Int?,
+
+    @SerializedName("detail_wn")
     val detail_wn: String?,
-    val jenis_kasus: Int?,
+
+    @SerializedName("id_kasus")
+    val id_kasus: Any?,
+
+    @SerializedName("tampilkan")
     val tampilkan: Int?,
+
+    @SerializedName("added_date")
     val added_date: String?,
-    val garis_penularan: String?
+
+    @SerializedName("garis_penularan")
+    val garis_penularan: Int?,
+
+    @SerializedName("provinsi")
+    val provinsi: Int?
 ) {
     override fun toString(): String {
-        return "Pasien ke -${this.id_pasien}[#hasil lab: ${this.hasil_lab}, #kode pasien: ${this.kode_pasien}, " +
-                "#provinsi: ${this.provinsi}, #long:${this.long}, #lat: ${this.lat}, #jeniskelamin:${this.jenis_kelamin},  " +
-                "#umur: ${this.umur}, #cluster:${this.cluster}, #keterangan: ${this.keterangan}, #status pasien:${this.status_pasien}" +
-                "#keterangan status: ${this.keterangan_status}, #wn:${this.wn}, #detail wn: ${this.detail_wn}, #jenis kasus:${this.jenis_kasus}" +
-                "#tampilkan: ${this.tampilkan}, #added date:${this.added_date}, #garis penularan: ${this.garis_penularan}]"
+        return "Pasien ke -${this.id_pasien}[" +
+                "#hasil lab: ${when (this.id_lab) {
+                    1 -> "positif"
+                    else -> "-"
+                }}, " +
+                "#kode pasien: ${this.kode_pasien ?: "-"}, " +
+                "#provinsi: ${this.provinsi ?: "-"}, " +
+                "#jeniskelamin:${when (this.jenis_kelamin) {
+                    0 -> "Perempuan"
+                    1 -> "Laki - Laki"
+                    else -> "-"
+                }},  " +
+                "#umur: ${this.umur ?: "-"}, " +
+                "#keterangan: ${this.keterangan ?: "-"}, " +
+                "#status pasien:${when (this.id_status) {
+                    0 -> "meninggal"
+                    1 -> "sembuh"
+                    2 -> "masih dirawat"
+                    else -> "-"
+                }
+                }" +
+                "#keterangan status: ${this.keterangan_status ?: "-"}, " +
+                "#wn:${this.wn ?: "-"}, " +
+                "#detail wn: ${this.detail_wn ?: "-"}, " +
+                "#tampilkan: ${this.tampilkan ?: "-"}, " +
+                "#added date:${this.added_date ?: "-" ?: "-"}, " +
+                "#garis penularan: ${this.garis_penularan ?: "-"}]"
     }
 }

@@ -13,9 +13,12 @@ class ProvinsiAdapter(private val daftarProvinsi: ArrayList<Provinsi>) :
     class ProvinsiHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(itemProvinsi: Provinsi) {
             with(itemView) {
+                val desc = "${itemProvinsi.kasusPosi} positif," +
+                        " ${itemProvinsi.kasusSemb} sembuh, " +
+                        "${itemProvinsi.kasusMeni} meninggal"
+
                 nama_provinsi.text = itemProvinsi.provinsi
-                data_provinsi.text = "${itemProvinsi.kasusPosi} positif," +
-                        " ${itemProvinsi.kasusSemb} sembuh, ${itemProvinsi.kasusMeni} meninggal"
+                data_provinsi.text = desc
             }
         }
     }
